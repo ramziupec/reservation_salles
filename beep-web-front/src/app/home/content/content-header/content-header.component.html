@@ -1,0 +1,25 @@
+<div class="content">
+  <div itemprop="name" class="queried-for">
+    <h4 title="men casual shirts" class="q">Salles Disponibles</h4>
+    <span>&nbsp;</span>
+  </div>
+
+  <div class="options">
+    <ul class="img-size">
+      <label>Vue:</label>
+      <li (click)="toggleView('COMPACT')" [ngClass]="{'big': true, 'selected': isBigSelected()}"></li>
+      <li (click)="toggleView('COZY')" [ngClass]="{'small': true, 'selected': isSmallSelected()}"></li>
+    </ul>
+
+  
+    <ul class="sort">
+      <label>Trier:</label>
+      <li data-sortkey=":new" (click)= "sort_new()">Nouveau</li>
+      <li data-sortkey=":new" (click)= "sort_old()">Ancien</li>
+      <label>Prix: 
+        <li data-sortkey=":low" (click)= "sort_price_low()">Bas</li>
+        <li data-sortkey=":high" (click)= "sort_price_high()">Haut</li>
+      </label>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<ul class="nav navbar-nav navbar-right">
+
+  <li class="dropdown" *ngIf="!isAuthenticated">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      <i class="fa fa-user" aria-hidden="true"></i>
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu" >
+        <li><a [routerLink]="['signup']">Créez un compte</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a [routerLink]="['login']">Connexion</a></li>
+      </ul>
+  </li>
+
+  <li class="dropdown" *ngIf="isAuthenticated">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+          <li><a class="coming-soon">Mon Profile</a></li>
+          <li><a class="coming-soon">Mes Reservation</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a class="coming-soon">Recherches sauvegardées</a></li>
+          <li><a class="" [routerLink]="['addroom']">Ajouter une Salle</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a class="coming-soon">Mes Favoris</a></li>
+          <li><a (click)="logout()">Déconnexion</a></li>
+        </ul>
+    </li>
+
+  <li class="cart coming-soon" *ngIf="isAuthenticated">
+    <a>
+      <i class="fa fa-bell" aria-hidden="true"></i>
+      <span class="badge badge-danger">?</span></a>
+  </li>
+</ul>

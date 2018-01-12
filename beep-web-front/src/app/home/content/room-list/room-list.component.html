@@ -1,0 +1,40 @@
+<div class="row-base" style="display: -webkit-flex">
+  <section>
+    <ul class="results-base">
+      <p *ngIf="rooms?.length <= 0">Aucun salle trouvé</p>
+      <li *ngFor="let room of rooms" class="product-base" [style.margin]="getMargin()" itemscope itemtype="https://schema.org/Product">
+        <div class="product-thumbShim"></div>
+        <a itemprop="url">
+          <img itemprop="image" class="product-thumb" alt="{{room.name}}" src="assets/imgs/room.jpg">
+          <div class="product-productMetaInfo">
+            <div itemprop="name" class="product-brand">{{ room.name }}</div>
+            <h2 class="product-product">{{ room.description }}</h2>
+            <div itemprop="offers" itemscope itemtype="https://schema.org/Offer" class="product-price">
+              <span>
+                <!-- Discounted price -->
+                <span itemprop="price" class="product-discountedPrice">€ {{ room.price }}</span>
+                <!-- Original price -->
+                <!--<span class="product-strike"> react-text: 485 Rs.  /react-text  react-text: 486 1699 /react-text </span>-->
+              </span>
+              <!--Percentage off -->
+              <!--<span class="product-discountPercentage">(40% OFF)</span>-->
+            </div>
+            <!-- Product Size -->
+            <!--<div class="product-sizes">Sizes: S, M, L, XL, XXL</div>-->
+          </div>
+        </a>
+
+
+        <div class="product-actions">
+
+          <span class="product-actionsButton product-wishlist coming-soon">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            Favorie</span>
+          <span class="product-actionsButton product-addToBag">
+            <span (click)="addToCart(room)" [routerLink]="['/room/', room._id]">En savoir plus</span>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </section>
+</div>
